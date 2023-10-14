@@ -8,48 +8,26 @@ namespace PetrolStation
 {
     public class Fuel
     {
-
-        //member variables
-        private string name;
-        private double rate;
-
-        //defualt constructor
-        public Fuel(string n)
+        private readonly double _rate;
+        public FuelType Type { get; set; }
+        public double Rate { get; }
+        public Fuel(FuelType t)
         {
-            this.setName(n);
-            if(this.getName().Equals("Diesel"))
+            this.Type = t;
+            if(t == FuelType.Diesel)
             {
-                this.setRate(80.25);
+                this._rate = 80.25;
             }
-            else if(this.getName().Equals("LPG"))
+            else if(t == FuelType.LPG)
             {
-                this.setRate(65.75);
+                this._rate = 65.75;
             }
             else
             {
-                this.setRate(55.40);
+                this._rate = 55.40;
             }
         }
 
 
-        //setter getters
-        public void setName(string n)
-        {
-            name = n;
-        }
-        public string getName()
-        {
-            return name;
-        }
-
-        public void setRate(double r)
-        {
-            rate = r;
-        }
-
-        public double getRate()
-        {
-            return rate;
-        }
     }
 }

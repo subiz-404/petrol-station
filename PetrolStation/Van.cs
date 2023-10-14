@@ -10,22 +10,13 @@ namespace PetrolStation
     {
 
         //overloaded constructor
-        public Van(int qCount)
+        public Van(int qCount): base(80)
         {
-            vehicleType = "Van";
-            pB.Image = Properties.Resources.van;
-            pB.Location = new System.Drawing.Point((281 - (qCount * 70)), 202);
-            Random rnd = new Random();
-            this.setTankCapacity(80);
-            this.setAvailableFuel(rnd.Next(26) * this.getTankCapacity() / 100);
-            if(rnd.Next(2) == 0)
-            {
-                this.setFuel("Diesel");
-            }
-            else
-            {
-                this.setFuel("LPG");
-            }
+            picBox.Image = Properties.Resources.van;
+            picBox.Location = new System.Drawing.Point((281 - (qCount * 70)), 202);
+            int f = rnd.Next(1, 3);
+            this.setFuel(f.ToEnum<FuelType>());
+
         }
     }
 }

@@ -8,15 +8,11 @@ namespace PetrolStation
 {
     public class HGV : Vehicle
     {
-        public HGV(int qCount)
+        public HGV(int qCount) : base(150)
         {
-            vehicleType = "HGV";
-            pB.Image = Properties.Resources.truck;
-            pB.Location = new System.Drawing.Point((281 - (qCount * 70)), 202);
-            Random rnd = new Random();
-            this.setTankCapacity(150);
-            this.setAvailableFuel(rnd.Next(26) * this.getTankCapacity() / 100);
-            this.setFuel("Diesel");
+            picBox.Image = Properties.Resources.truck;
+            picBox.Location = new System.Drawing.Point((281 - (qCount * 70)), 202);
+            this.setFuel(FuelType.Diesel);
         }
     }
 }
